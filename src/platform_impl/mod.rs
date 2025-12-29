@@ -26,6 +26,9 @@ mod platform;
 
 pub use platform::*;
 
+#[cfg(feature = "velox-testing")]
+pub(crate) use platform::force_app_state_launched_for_testing;
+
 #[cfg(all(
   not(target_os = "ios"),
   not(target_os = "windows"),

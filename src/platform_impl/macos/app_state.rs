@@ -307,6 +307,18 @@ impl AppState {
     HANDLER.set_in_callback(false);
   }
 
+  #[cfg(feature = "velox-testing")]
+  pub fn force_launched_for_testing() {
+    HANDLER.set_ready();
+    HANDLER.waker().start();
+    HANDLER.set_in_callback(true);
+    HANDLER.handle_nonuser_event(EventWrapper::StaticEvent(Event::NewEvents(
+      StartCause::Init,
+    )));
+    HANDLER.update_start_time();
+    HANDLER.set_in_callback(false);
+  }
+
   pub fn open_urls(urls: Vec<url::Url>) {
     HANDLER.handle_nonuser_event(EventWrapper::StaticEvent(Event::Opened { urls }));
   }

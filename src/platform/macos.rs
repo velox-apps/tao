@@ -16,6 +16,11 @@ use crate::{
   window::{Window, WindowBuilder},
 };
 
+#[cfg(feature = "velox-testing")]
+pub fn force_app_state_launched_for_testing() {
+  crate::platform_impl::force_app_state_launched_for_testing();
+}
+
 /// Additional methods on `Window` that are specific to MacOS.
 pub trait WindowExtMacOS {
   /// Returns a pointer to the cocoa `NSWindow` that is used by this window.

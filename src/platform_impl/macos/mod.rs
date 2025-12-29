@@ -20,6 +20,11 @@ mod view;
 mod window;
 mod window_delegate;
 
+#[cfg(feature = "velox-testing")]
+pub(crate) fn force_app_state_launched_for_testing() {
+  app_state::AppState::force_launched_for_testing();
+}
+
 use std::{fmt, ops::Deref, sync::Arc};
 
 pub(crate) use self::event_loop::PlatformSpecificEventLoopAttributes;
