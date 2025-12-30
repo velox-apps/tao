@@ -1,3 +1,8 @@
+# Fork Information
+
+This fork merely adds some APIs that make it easy to unit test from Velox, but it is not needed
+and only used for local development, you do not need this fork.
+
 <img src=".github/splash.png" alt="TAO - Window Creation Library" />
 
 [![](https://img.shields.io/crates/v/tao?style=flat-square)](https://crates.io/crates/tao)
